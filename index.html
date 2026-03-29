@@ -433,23 +433,40 @@
   </footer>
 
   <!-- WHATSAPP POPUP -->
-  <div class="wa-popup" id="waPopup">
-    <button class="wa-popup-close" id="waPopupClose">✕</button>
-    <div class="wa-popup-header">
-      <div class="wa-popup-avatar">ל</div>
-      <div class="wa-popup-info">
-        <strong>לירן פרץ</strong>
-        <span>מאמן כושר ויועץ תזונה</span>
+  <div id="waPopup" style="
+    display:none;
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:270px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+    z-index:99999;
+    overflow:hidden;
+    font-family:'Heebo',sans-serif;
+    direction:rtl;
+    animation: slideUp 0.4s ease;
+  ">
+    <div style="background:#075E54;padding:12px 14px;display:flex;align-items:center;gap:10px;position:relative;">
+      <div style="width:38px;height:38px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0;">ל</div>
+      <div>
+        <div style="color:#fff;font-size:14px;font-weight:700;">לירן פרץ</div>
+        <div style="color:rgba(255,255,255,0.7);font-size:11px;">מאמן כושר ויועץ תזונה</div>
       </div>
-      <div class="wa-popup-online"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#25D366;margin-right:auto;"></div>
+      <button onclick="document.getElementById('waPopup').style.display='none'" style="position:absolute;left:10px;top:8px;background:none;border:none;color:rgba(255,255,255,0.7);font-size:16px;cursor:pointer;line-height:1;">✕</button>
     </div>
-    <div class="wa-popup-body">
-      <div class="wa-popup-msg">מה נשמע? 😊 אשמח לעזור לך להגיע למטרה שלך!</div>
+    <div style="background:#ECE5DD;padding:14px;">
+      <div style="background:#fff;border-radius:0 10px 10px 10px;padding:10px 12px;font-size:13px;color:#333;line-height:1.5;box-shadow:0 1px 3px rgba(0,0,0,0.1);">מה נשמע? 😊 אשמח לעזור לך להגיע למטרה שלך!</div>
     </div>
-    <a href="https://api.whatsapp.com/send/?phone=972524464204&text=%F0%9F%92%AA%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%99%D7%A8%D7%9F%20%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA&type=phone_number&app_absent=0" target="_blank" class="wa-popup-btn">
-      <i class="fab fa-whatsapp"></i> שלח הודעה
+    <a href="https://api.whatsapp.com/send/?phone=972524464204&text=%F0%9F%92%AA%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%99%D7%A8%D7%9F%20%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA&type=phone_number&app_absent=0" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;font-family:'Heebo',sans-serif;font-size:15px;font-weight:700;padding:13px;text-decoration:none;">
+      <i class="fab fa-whatsapp" style="font-size:18px;"></i> שלח הודעה
     </a>
   </div>
+  <style>
+    @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  </style>
 
   <!-- WHATSAPP MOBILE BANNER -->
   <a href="https://api.whatsapp.com/send/?phone=972524464204&text=%F0%9F%92%AA%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%99%D7%A8%D7%9F%20%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA&type=phone_number&app_absent=0" class="whatsapp-banner" target="_blank">
@@ -511,10 +528,10 @@
     startAuto();
 
     // WhatsApp popup after 60 seconds
-    const waPopup = document.getElementById('waPopup');
-    const waPopupClose = document.getElementById('waPopupClose');
-    setTimeout(() => { waPopup.classList.add('show'); }, 3000);
-    waPopupClose.addEventListener('click', () => { waPopup.classList.remove('show'); });
+    setTimeout(() => {
+      var p = document.getElementById('waPopup');
+      p.style.display = 'block';
+    }, 3000);
 
     // Animate stats on scroll
     const statNumbers = document.querySelectorAll('.stat-number');
