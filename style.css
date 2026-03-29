@@ -1147,6 +1147,130 @@ body {
   font-size: 12px;
 }
 
+/* ===== WHATSAPP POPUP ===== */
+.wa-popup {
+  position: fixed;
+  bottom: 90px;
+  left: 24px;
+  width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.wa-popup.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.wa-popup-close {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  z-index: 2;
+  line-height: 1;
+}
+
+.wa-popup-header {
+  background: #075E54;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.wa-popup-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.wa-popup-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wa-popup-info strong {
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Heebo', sans-serif;
+}
+
+.wa-popup-info span {
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-family: 'Heebo', sans-serif;
+}
+
+.wa-popup-online {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #25D366;
+  margin-right: auto;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+
+.wa-popup-body {
+  background: #ECE5DD;
+  padding: 16px 14px;
+  direction: rtl;
+}
+
+.wa-popup-msg {
+  background: #fff;
+  border-radius: 0 10px 10px 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'Heebo', sans-serif;
+  color: #333;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: inline-block;
+  max-width: 100%;
+}
+
+.wa-popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  color: #fff;
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px;
+  text-decoration: none;
+  transition: background 0.2s;
+  direction: rtl;
+}
+
+.wa-popup-btn:hover { background: #1da851; }
+.wa-popup-btn i { font-size: 18px; }
+
 /* ===== WHATSAPP MOBILE BANNER ===== */
 .whatsapp-banner {
   display: none;
