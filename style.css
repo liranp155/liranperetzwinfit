@@ -1319,14 +1319,15 @@ body {
 }
 
 @media (max-width: 900px) {
-  .whatsapp-banner { display: none; }
+  .whatsapp-banner { display: none !important; }
+  body { padding-bottom: 0; }
   .whatsapp-btn {
-    display: flex;
+    display: flex !important;
     bottom: 20px;
     left: 20px;
-    width: 54px;
-    height: 54px;
-    font-size: 26px;
+    width: 58px;
+    height: 58px;
+    font-size: 28px;
   }
 }
 
