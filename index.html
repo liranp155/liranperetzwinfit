@@ -433,21 +433,7 @@
   </footer>
 
   <!-- WHATSAPP POPUP -->
-  <div id="waPopup" style="
-    display:none;
-    position:fixed;
-    bottom:80px;
-    right:20px;
-    width:270px;
-    background:#fff;
-    border-radius:16px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.3);
-    z-index:99999;
-    overflow:hidden;
-    font-family:'Heebo',sans-serif;
-    direction:rtl;
-    animation: slideUp 0.4s ease;
-  ">
+  <div id="waPopup" style="display:none;position:fixed;bottom:80px;right:20px;width:270px;background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.3);z-index:99999;overflow:hidden;font-family:'Heebo',sans-serif;direction:rtl;">
     <div style="background:#075E54;padding:12px 14px;display:flex;align-items:center;gap:10px;position:relative;">
       <img src="image/profile.jpg" style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;" alt="לירן פרץ" />
       <div>
@@ -527,10 +513,13 @@
 
     startAuto();
 
-    // WhatsApp popup after 60 seconds
-    setTimeout(() => {
+    // WhatsApp popup after 3 seconds
+    setTimeout(function() {
       var p = document.getElementById('waPopup');
-      p.style.display = 'block';
+      if (p) {
+        p.style.display = 'block';
+        p.style.animation = 'slideUp 0.4s ease';
+      }
     }, 3000);
 
     // Animate stats on scroll
