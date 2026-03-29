@@ -1151,7 +1151,8 @@ body {
 .wa-popup {
   position: fixed;
   bottom: 90px;
-  left: 24px;
+  right: 24px;
+  left: auto;
   width: 280px;
   background: #fff;
   border-radius: 16px;
