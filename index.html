@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>לירן פרץ - מאמן כושר ויועץ תזונה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BACKGROUND PERSON IMAGE -->
+  <div class="bg-person-wrap">
+    <img src="image/5fa5e563-56b8-4005-ac41-17f51bdd8e5b-removebg-preview.png" class="bg-person-img" alt="" />
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Right: Phone + Social -->
+      <div class="nav-right">
+        <a href="tel:052-4464-204" class="nav-phone">052-4464-204</a>
+        <div class="nav-social">
+          <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" title="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-icon" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Center: Nav Links -->
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="#" class="active">דף הבית</a></li>
+          <li><a href="#about">אודותיי</a></li>
+          <li class="has-dropdown">
+            <a href="#">מאמרים <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="#">יועץ תזונה</a></li>
+              <li><a href="#">חיטוב וירידה במשקל</a></li>
+              <li><a href="#">ליווי לאורח חיים בריא</a></li>
+              <li><a href="#">פיתוח גוף</a></li>
+              <li><a href="#">מאמן כושר לנשים</a></li>
+              <li><a href="#">מאמן כושר לגברים</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">מדברים בתוצאות <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="#">סרטוני ממליצים</a></li>
+            </ul>
+          </li>
+          <li><a href="#testimonials">מתאמנים כותבים</a></li>
+          <li><a href="#guides">מדריכים מקצועיים</a></li>
+          <li><a href="#contact">צור קשר</a></li>
+        </ul>
+        <!-- Mobile burger -->
+        <button class="burger-btn" id="burgerBtn" aria-label="תפריט">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Left: Logo -->
+      <div class="nav-left">
+        <a href="#" class="logo">
+          <span class="logo-icon">&#9889;</span>
+          <span class="logo-text">לירן פרץ</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#">דף הבית</a></li>
+        <li><a href="#about">אודותיי</a></li>
+        <li><a href="#">מאמרים</a></li>
+        <li><a href="#">מדברים בתוצאות</a></li>
+        <li><a href="#testimonials">מתאמנים כותבים</a></li>
+        <li><a href="#guides">מדריכים מקצועיים</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER -->
+  <section class="hero" id="home">
+
+    <!-- Trainer photo — visible on right side across all slides -->
+    <div class="hero-photo-wrap">
+      <img src="hero.jpg" alt="מאמן כושר" class="hero-photo" />
+      <div class="hero-photo-fade"></div>
+    </div>
+
+    <div class="hero-slider">
+
+      <div class="slide slide-1 active">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-heading animated">מוכן לשינוי בחיים?</div>
+          <div class="slide-desc animated">עכשיו זה מתחיל!</div>
+          <div class="slide-actions animated">
+            <a href="#contact" class="btn btn-primary">צור קשר עכשיו</a>
+            <a href="#about" class="btn btn-outline">קרא עוד</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide slide-2">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-heading">כל מה שצריך זה</div>
+          <div class="slide-desc">להטמיע הרגלים חדשים</div>
+          <div class="slide-actions">
+            <a href="#contact" class="btn btn-primary">התחל היום</a>
+            <a href="#about" class="btn btn-outline">קרא עוד</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide slide-3">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-heading">נעבוד יחד בתכנית אישית</div>
+          <div class="slide-desc">עד לקבלת התוצאה הרצוייה</div>
+          <div class="slide-actions">
+            <a href="#contact" class="btn btn-primary">לתכנית אישית</a>
+            <a href="#services" class="btn btn-outline">השירותים שלי</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide slide-4">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-heading">ובסוף התהליך</div>
+          <div class="slide-desc">נשמר את התוצאה!</div>
+          <div class="slide-actions">
+            <a href="#contact" class="btn btn-primary">הצטרף אלינו</a>
+            <a href="#testimonials" class="btn btn-outline">מה אומרים עלינו</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider dots -->
+      <div class="slider-dots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+        <button class="dot" data-slide="3"></button>
+      </div>
+
+    </div>
+
+    <!-- Signature image placeholder -->
+    <div class="hero-signature">
+      <span class="signature-text">לירן פרץ</span>
+    </div>
+
+    <!-- Pyramid shape divider -->
+    <div class="hero-shape">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path class="shape-fill" d="M761.9,44.1L643.1,27.2L333.8,98L0,3.8V0l1000,0v3.9"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-star"><i class="fas fa-star"></i></div>
+      <h2 class="about-name">לירן פרץ</h2>
+      <div class="about-divider">
+        <span class="divider-line"></span>
+        <h1 class="divider-title">מאמן כושר ויועץ תזונה</h1>
+        <span class="divider-line"></span>
+      </div>
+      <p class="about-phone">052-4464-204</p>
+      <p class="about-desc">
+        ברוכים הבאים לעולם שלי, שבו אני עוסק חי ואוהב כל רגע כבר 6 שנים, עזרתי למעל 600 מתאמנים להגיע לתוצאות גופניות ואשכרה לאהוב להתאמן. אגב אני גם מאמן אונליין וגם בעל סטודיו לאימונים כי אני מאמין שגם צריך להרגיש ולראות את המתאמנים בשטח.
+      </p>
+      <div class="about-images">
+        <div class="about-img about-img-1">
+          <div class="img-inner">
+            <i class="fas fa-trophy"></i>
+            <span>תוצאות בשטח</span>
+          </div>
+        </div>
+        <div class="about-img about-img-2">
+          <div class="img-inner">
+            <i class="fas fa-medal"></i>
+            <span>אימונים פרונטליים בסטודיו</span>
+          </div>
+        </div>
+        <div class="about-img about-img-3">
+          <div class="img-inner">
+            <i class="fas fa-award"></i>
+            <span>ליווי תזונה אונליין</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD SECTION -->
+  <section class="method" id="services">
+    <div class="method-overlay"></div>
+    <div class="method-container">
+      <div class="method-text">
+        <div class="section-tag">השיטה שלי</div>
+        <h2>גישה אישית<br/><span class="highlight">לכל מתאמן</span></h2>
+        <p>כל מתאמן מגיע עם מטרות, יכולות ואורח חיים שונה. לכן אני מאמין בבניית תכנית אישית ייחודית לכל אחד.</p>
+        <a href="#contact" class="btn btn-primary">צור קשר</a>
+      </div>
+      <div class="method-icons">
+        <div class="method-item">
+          <div class="method-icon"><i class="fas fa-user-check"></i></div>
+          <h3>התאמה אישית<br/>לכל אחד!</h3>
+          <p>אין תכנית קבועה</p>
+        </div>
+        <div class="method-item">
+          <div class="method-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>מעקב רציף<br/>אחרי ההתקדמות</h3>
+          <p>תמיד נדע איפה אנחנו עומדים</p>
+        </div>
+        <div class="method-item">
+          <div class="method-icon"><i class="fas fa-apple-alt"></i></div>
+          <h3>תזונה נכונה<br/>לאורח חיים</h3>
+          <p>לא דיאטה, אלא שינוי אמיתי</p>
+        </div>
+        <div class="method-item">
+          <div class="method-icon"><i class="fas fa-infinity"></i></div>
+          <h3>שמירה על<br/>התוצאות</h3>
+          <p>לאורך זמן ולא רק לתקופה</p>
+        </div>
+        <div class="method-item">
+          <div class="method-icon"><i class="fas fa-brain"></i></div>
+          <h3>מנטליות של<br/>מנצחים</h3>
+          <p>כי הכל מתחיל בראש</p>
+        </div>
+        <div class="method-item">
+          <div class="method-icon"><i class="fas fa-comments"></i></div>
+          <h3>ליווי וזמינות<br/>מלאה</h3>
+          <p>תמיד כאן בשבילך</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARALLAX SECTION -->
+  <section class="parallax-section">
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content">
+      <h2>תוצאות אמיתיות<br/><span>מגוף אמיתי</span></h2>
+      <p>6 שנות ניסיון | 600+ מתאמנים מרוצים</p>
+      <a href="#contact" class="btn btn-primary">התחל עכשיו</a>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-number">600+</span>
+        <span class="stat-label">מתאמנים מרוצים</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">שנות ניסיון</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">מחויבות לתוצאות</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">זמינות וליווי</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-container">
+      <div class="section-header">
+        <div class="section-tag">מתאמנים כותבים</div>
+        <h2>מה אומרים עלינו</h2>
+        <p>תוצאות אמיתיות מאנשים אמיתיים</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"אחרי 3 חודשים של עבודה עם לירן פרץ ירדתי 15 ק"ג ובניתי שרירים שלא חשבתי שאי פעם יהיו לי. השינוי לא רק גופני אלא גם מנטלי."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">י</div>
+            <div>
+              <strong>ידידיה כהן</strong>
+              <span>ירד 15 ק"ג ב-3 חודשים</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card featured-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"המאמן הכי טוב שפגשתי. מקצועי, סבלני ותמיד זמין. התכנית האישית שקיבלתי שינתה את חיי לחלוטין. ממליצה לכל אחד ואחת!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">מ</div>
+            <div>
+              <strong>מיכל לוי</strong>
+              <span>חיטוב וכושר כללי</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"ניסיתי הרבה מאמנים לפני, אבל כאן זה אחרת. הגישה האישית, הסבלנות והידע המקצועי הם ברמה אחרת לגמרי. תוצאות מדהימות!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ד</div>
+            <div>
+              <strong>דוד אברהם</strong>
+              <span>בניית שרירים ועלייה במסה</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES SECTION -->
+  <section class="guides" id="guides">
+    <div class="guides-overlay"></div>
+    <div class="guides-container">
+      <div class="section-header light">
+        <div class="section-tag">מדריכים מקצועיים</div>
+        <h2>מאמרים וטיפים</h2>
+        <p>ידע מקצועי שיעזור לך להגיע לתוצאות</p>
+      </div>
+      <div class="guides-grid">
+        <div class="guide-card">
+          <div class="guide-icon"><i class="fas fa-dumbbell"></i></div>
+          <h3>פיתוח גוף</h3>
+          <p>המדריך המלא לבניית מסת שריר נכונה ויעילה</p>
+          <a href="#" class="guide-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="guide-card">
+          <div class="guide-icon"><i class="fas fa-salad"></i></div>
+          <h3>יועץ תזונה</h3>
+          <p>כיצד לבנות תפריט תזונתי שיתמוך במטרות שלך</p>
+          <a href="#" class="guide-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="guide-card">
+          <div class="guide-icon"><i class="fas fa-weight"></i></div>
+          <h3>חיטוב וירידה במשקל</h3>
+          <p>הדרך הנכונה לרדת במשקל ולשמור על התוצאות</p>
+          <a href="#" class="guide-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="guide-card">
+          <div class="guide-icon"><i class="fas fa-female"></i></div>
+          <h3>מאמן כושר לנשים</h3>
+          <p>אימון מותאם לנשים – בגישה מכבדת ומקצועית</p>
+          <a href="#" class="guide-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta" id="contact">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <div class="section-tag">צור קשר</div>
+      <h2>מוכן להתחיל?</h2>
+      <p>השאר פרטים ואחזור אליך תוך 24 שעות</p>
+      <form class="contact-form" action="https://formsubmit.co/winfitnessstudio@gmail.com" method="POST">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="ליד חדש מהאתר! 💪" />
+        <input type="hidden" name="_language" value="he" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="thanks.html" />
+
+        <div class="form-row">
+          <input type="text" name="שם מלא" placeholder="שם מלא" required />
+          <input type="tel" name="טלפון" placeholder="טלפון" required />
+        </div>
+        <input type="text" name="מטרה" placeholder="מה המטרה שלך?" />
+        <button type="submit" class="btn btn-primary btn-large">שלח פנייה</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon">&#9889;</span>
+          <span class="logo-text">לירן פרץ</span>
+        </div>
+        <p>פורצים גבולות. בונים גוף. משנים חיים.</p>
+        <div class="footer-social">
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>ניווט מהיר</h4>
+        <ul>
+          <li><a href="#">דף הבית</a></li>
+          <li><a href="#about">אודותיי</a></li>
+          <li><a href="#services">השיטה שלי</a></li>
+          <li><a href="#testimonials">מתאמנים כותבים</a></li>
+          <li><a href="#guides">מדריכים</a></li>
+          <li><a href="#contact">צור קשר</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>צור קשר</h4>
+        <p><i class="fas fa-phone"></i> 052-4464-204</p>
+        <p><i class="fab fa-whatsapp"></i> שלח הודעה</p>
+        <p><i class="fab fa-instagram"></i> Instagram</p>
+        <p><i class="fas fa-map-marker-alt"></i> ישראל</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 לירן פרץ. כל הזכויות שמורות.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP MOBILE BANNER -->
+  <a href="https://api.whatsapp.com/send/?phone=972524464204&text&type=phone_number&app_absent=0" class="whatsapp-banner" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>שלח הודעה בוואטסאפ</span>
+  </a>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://api.whatsapp.com/send/?phone=972524464204&text&type=phone_number&app_absent=0" class="whatsapp-btn" target="_blank" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu toggle
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burgerBtn.addEventListener('click', () => {
+      burgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Hero Slider
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    let autoTimer;
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function startAuto() {
+      autoTimer = setInterval(() => goToSlide(current + 1), 5000);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(autoTimer);
+        goToSlide(parseInt(dot.dataset.slide));
+        startAuto();
+      });
+    });
+
+    // Hover pause
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    heroSection.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+
+    // Animate stats on scroll
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.5 });
+    statNumbers.forEach(n => observer.observe(n));
+  </script>
+
+</body>
+</html>
