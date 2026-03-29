@@ -59,7 +59,7 @@ body {
 
 /* Everything above the background */
 .navbar, .hero, .about, .method, .parallax-section,
-.stats-bar, .testimonials, .guides, .cta, .footer, .whatsapp-btn {
+.stats-bar, .testimonials, .guides, .cta, .footer {
   position: relative;
   z-index: 1;
 }
