@@ -807,6 +807,9 @@ body {
 .before-after {
   padding: 70px 40px 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .before-after-container { max-width: 700px; margin: 0 auto; }
