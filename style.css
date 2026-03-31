@@ -873,9 +873,6 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-.film-strip-wrap:hover .film-strip-track {
-  animation-play-state: paused;
-}
 
 @media (max-width: 768px) {
   .film-img { height: 100px; }
