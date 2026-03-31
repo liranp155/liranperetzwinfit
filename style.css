@@ -805,36 +805,41 @@ body {
 
 /* ===== BEFORE AFTER ===== */
 .before-after {
-  padding: 70px 40px 20px;
+  padding: 70px 20px 30px;
   text-align: center;
+}
+
+.before-after-container {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-.before-after-container { max-width: 700px; margin: 0 auto; }
-
 .before-after-title {
-  font-size: clamp(42px, 7vw, 80px);
+  font-size: clamp(40px, 6vw, 75px);
   font-weight: 900;
   letter-spacing: 4px;
-  margin: 12px 0 24px;
+  margin: 0 0 20px;
   color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
 }
 
 .before-after-title .highlight {
   color: var(--primary);
-  margin: 0 16px;
+  margin: 0 18px;
   font-weight: 300;
 }
 
 .before-after-line {
-  width: 80px;
+  width: 100px;
   height: 3px;
   background: var(--primary);
   margin: 0 auto;
   border-radius: 2px;
-  box-shadow: 0 0 12px rgba(0,212,255,0.6);
+  box-shadow: 0 0 14px rgba(0,212,255,0.7);
 }
 
 /* ===== TESTIMONIALS ===== */
