@@ -539,7 +539,10 @@
       var TOTAL, SPEED;
 
       function init() {
-        TOTAL = track.scrollWidth / 2;
+        var firstImg = track.querySelector('img');
+        var imgW = firstImg.offsetWidth;
+        var marginR = parseFloat(window.getComputedStyle(firstImg).marginRight) || 0;
+        TOTAL = (imgW + marginR) * (imgs.length / 2);
         SPEED = TOTAL / 35 / 1000;
         requestAnimationFrame(tick);
       }
@@ -556,6 +559,7 @@
         else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
       });
       if (loaded === imgs.length) init();
+      else setTimeout(function() { if (!TOTAL) init(); }, 2000);
       var pos = 0;
       var isDragging = false;
       var dragStartX = 0;
