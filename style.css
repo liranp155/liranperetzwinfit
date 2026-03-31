@@ -855,7 +855,7 @@ body {
   flex-direction: row;
   width: max-content;
   direction: ltr;
-  animation: filmScroll 35s linear infinite;
+  /* animation handled by JS */
 }
 
 .film-img {

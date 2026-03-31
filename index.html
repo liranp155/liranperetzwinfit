@@ -536,56 +536,81 @@
   <script>
     (function() {
       var track = document.querySelector('.film-strip-track');
-      var TOTAL = 1944, DURATION = 35;
-      var isDragging = false, startX = 0, currentOffset = 0, dragOffset = 0, didDrag = false;
+      var TOTAL = 1944;
+      var SPEED = TOTAL / 35 / 1000; // px per ms
+      var pos = 0;
+      var isDragging = false;
+      var dragStartX = 0;
+      var dragStartPos = 0;
+      var didDrag = false;
+      var lastTs = null;
+
+      // Remove CSS animation — JS takes over
+      track.style.animation = 'none';
+      track.style.transform = 'translateX(0px)';
+
+      function wrap(p) {
+        p = p % -TOTAL;
+        if (p > 0) p -= TOTAL;
+        return p;
+      }
+
+      function tick(ts) {
+        if (!isDragging) {
+          if (lastTs !== null) {
+            pos -= SPEED * (ts - lastTs);
+            pos = wrap(pos);
+            track.style.transform = 'translateX(' + pos + 'px)';
+          }
+          lastTs = ts;
+        } else {
+          lastTs = null;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
 
       function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
 
-      function startDrag(e) {
+      track.addEventListener('mousedown', function(e) {
         isDragging = true;
         didDrag = false;
-        startX = getX(e);
-        var matrix = new DOMMatrix(window.getComputedStyle(track).transform);
-        currentOffset = matrix.m41;
-        track.style.animation = 'none';
-        track.style.transform = 'translateX(' + currentOffset + 'px)';
-      }
+        dragStartX = getX(e);
+        dragStartPos = pos;
+        track.style.cursor = 'grabbing';
+      });
+      track.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        didDrag = false;
+        dragStartX = getX(e);
+        dragStartPos = pos;
+      }, { passive: true });
 
-      function wrap(pos) {
-        pos = pos % -TOTAL;
-        if (pos > 0) pos -= TOTAL;
-        if (pos === 0) pos = -TOTAL;
-        return pos;
-      }
-
-      function onDrag(e) {
+      document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        var delta = getX(e) - dragStartX;
+        if (Math.abs(delta) > 5) didDrag = true;
+        pos = wrap(dragStartPos + delta);
+        track.style.transform = 'translateX(' + pos + 'px)';
+      });
+      document.addEventListener('touchmove', function(e) {
         if (!isDragging) return;
         if (e.cancelable) e.preventDefault();
-        dragOffset = getX(e) - startX;
-        if (Math.abs(dragOffset) > 5) didDrag = true;
-        var pos = wrap(currentOffset + dragOffset);
+        var delta = getX(e) - dragStartX;
+        if (Math.abs(delta) > 5) didDrag = true;
+        pos = wrap(dragStartPos + delta);
         track.style.transform = 'translateX(' + pos + 'px)';
-      }
+      }, { passive: false });
 
-      function endDrag() {
-        if (!isDragging) return;
+      document.addEventListener('mouseup', function() {
         isDragging = false;
-        var pos = wrap(currentOffset + dragOffset);
-        dragOffset = 0;
-        var elapsed = (-pos * DURATION / TOTAL);
-        track.style.transform = '';
-        void track.offsetWidth;
-        track.style.animation = 'filmScroll ' + DURATION + 's linear -' + elapsed + 's infinite';
-      }
+        track.style.cursor = 'grab';
+      });
+      document.addEventListener('touchend', function() {
+        isDragging = false;
+      });
 
-      track.addEventListener('mousedown', startDrag);
-      track.addEventListener('touchstart', startDrag, { passive: true });
-      document.addEventListener('mousemove', onDrag);
-      document.addEventListener('touchmove', onDrag, { passive: false });
-      document.addEventListener('mouseup', endDrag);
-      document.addEventListener('touchend', endDrag);
-
-      // Lightbox — only open if user didn't drag
+      // Lightbox — only on tap without drag
       document.querySelectorAll('.film-img[alt]:not([alt=""])').forEach(function(img) {
         img.style.cursor = 'grab';
         img.addEventListener('click', function() {
