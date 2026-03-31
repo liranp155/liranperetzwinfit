@@ -529,5 +529,20 @@
     statNumbers.forEach(n => observer.observe(n));
   </script>
 
+  <!-- LIGHTBOX -->
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="" style="max-width:92vw;max-height:92vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.8);" />
+  </div>
+  <script>
+    document.querySelectorAll('.film-img[alt]:not([alt=""])').forEach(function(img) {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() {
+        var lb = document.getElementById('lightbox');
+        document.getElementById('lightbox-img').src = this.src;
+        lb.style.display = 'flex';
+      });
+    });
+  </script>
+
 </body>
 </html>
