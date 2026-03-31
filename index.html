@@ -534,14 +534,62 @@
     <img id="lightbox-img" src="" alt="" style="max-width:92vw;max-height:92vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.8);" />
   </div>
   <script>
-    document.querySelectorAll('.film-img[alt]:not([alt=""])').forEach(function(img) {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', function() {
-        var lb = document.getElementById('lightbox');
-        document.getElementById('lightbox-img').src = this.src;
-        lb.style.display = 'flex';
+    (function() {
+      var track = document.querySelector('.film-strip-track');
+      var TOTAL = 1944, DURATION = 35;
+      var isDragging = false, startX = 0, currentOffset = 0, dragOffset = 0, didDrag = false;
+
+      function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+
+      function startDrag(e) {
+        isDragging = true;
+        didDrag = false;
+        startX = getX(e);
+        var matrix = new DOMMatrix(window.getComputedStyle(track).transform);
+        currentOffset = matrix.m41;
+        track.style.animation = 'none';
+        track.style.transform = 'translateX(' + currentOffset + 'px)';
+      }
+
+      function onDrag(e) {
+        if (!isDragging) return;
+        if (e.cancelable) e.preventDefault();
+        dragOffset = getX(e) - startX;
+        if (Math.abs(dragOffset) > 5) didDrag = true;
+        track.style.transform = 'translateX(' + (currentOffset + dragOffset) + 'px)';
+      }
+
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        var pos = currentOffset + dragOffset;
+        dragOffset = 0;
+        pos = pos % -TOTAL;
+        if (pos > 0) pos -= TOTAL;
+        var elapsed = (-pos * DURATION / TOTAL);
+        track.style.transform = '';
+        void track.offsetWidth;
+        track.style.animation = 'filmScroll ' + DURATION + 's linear -' + elapsed + 's infinite';
+      }
+
+      track.addEventListener('mousedown', startDrag);
+      track.addEventListener('touchstart', startDrag, { passive: true });
+      document.addEventListener('mousemove', onDrag);
+      document.addEventListener('touchmove', onDrag, { passive: false });
+      document.addEventListener('mouseup', endDrag);
+      document.addEventListener('touchend', endDrag);
+
+      // Lightbox — only open if user didn't drag
+      document.querySelectorAll('.film-img[alt]:not([alt=""])').forEach(function(img) {
+        img.style.cursor = 'grab';
+        img.addEventListener('click', function() {
+          if (didDrag) return;
+          var lb = document.getElementById('lightbox');
+          document.getElementById('lightbox-img').src = this.src;
+          lb.style.display = 'flex';
+        });
       });
-    });
+    })();
   </script>
 
 </body>
