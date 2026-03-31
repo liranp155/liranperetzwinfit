@@ -551,21 +551,27 @@
         track.style.transform = 'translateX(' + currentOffset + 'px)';
       }
 
+      function wrap(pos) {
+        pos = pos % -TOTAL;
+        if (pos > 0) pos -= TOTAL;
+        if (pos === 0) pos = -TOTAL;
+        return pos;
+      }
+
       function onDrag(e) {
         if (!isDragging) return;
         if (e.cancelable) e.preventDefault();
         dragOffset = getX(e) - startX;
         if (Math.abs(dragOffset) > 5) didDrag = true;
-        track.style.transform = 'translateX(' + (currentOffset + dragOffset) + 'px)';
+        var pos = wrap(currentOffset + dragOffset);
+        track.style.transform = 'translateX(' + pos + 'px)';
       }
 
       function endDrag() {
         if (!isDragging) return;
         isDragging = false;
-        var pos = currentOffset + dragOffset;
+        var pos = wrap(currentOffset + dragOffset);
         dragOffset = 0;
-        pos = pos % -TOTAL;
-        if (pos > 0) pos -= TOTAL;
         var elapsed = (-pos * DURATION / TOTAL);
         track.style.transform = '';
         void track.offsetWidth;
