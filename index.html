@@ -293,25 +293,25 @@
     </div>
     <div class="film-strip-wrap">
       <div class="film-strip-track">
-        <img src="image/ba1.jpg" alt="תוצאה לפני אחרי 1" class="film-img" loading="lazy" />
-        <img src="image/ba2.jpg" alt="תוצאה לפני אחרי 2" class="film-img" loading="lazy" />
-        <img src="image/ba3.jpg" alt="תוצאה לפני אחרי 3" class="film-img" loading="lazy" />
-        <img src="image/ba4.jpg" alt="תוצאה לפני אחרי 4" class="film-img" loading="lazy" />
-        <img src="image/ba5.jpg" alt="תוצאה לפני אחרי 5" class="film-img" loading="lazy" />
-        <img src="image/ba6.jpg" alt="תוצאה לפני אחרי 6" class="film-img" loading="lazy" />
-        <img src="image/ba7.jpg" alt="תוצאה לפני אחרי 7" class="film-img" loading="lazy" />
-        <img src="image/ba8.jpg" alt="תוצאה לפני אחרי 8" class="film-img" loading="lazy" />
-        <img src="image/ba9.jpg" alt="תוצאה לפני אחרי 9" class="film-img" loading="lazy" />
+        <img src="image/ba1.jpg" alt="תוצאה לפני אחרי 1" class="film-img" />
+        <img src="image/ba2.jpg" alt="תוצאה לפני אחרי 2" class="film-img" />
+        <img src="image/ba3.jpg" alt="תוצאה לפני אחרי 3" class="film-img" />
+        <img src="image/ba4.jpg" alt="תוצאה לפני אחרי 4" class="film-img" />
+        <img src="image/ba5.jpg" alt="תוצאה לפני אחרי 5" class="film-img" />
+        <img src="image/ba6.jpg" alt="תוצאה לפני אחרי 6" class="film-img" />
+        <img src="image/ba7.jpg" alt="תוצאה לפני אחרי 7" class="film-img" />
+        <img src="image/ba8.jpg" alt="תוצאה לפני אחרי 8" class="film-img" />
+        <img src="image/ba9.jpg" alt="תוצאה לפני אחרי 9" class="film-img" />
         <!-- duplicate for seamless loop -->
-        <img src="image/ba1.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba2.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba3.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba4.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba5.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba6.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba7.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba8.jpg" alt="" class="film-img" loading="lazy" />
-        <img src="image/ba9.jpg" alt="" class="film-img" loading="lazy" />
+        <img src="image/ba1.jpg" alt="" class="film-img" />
+        <img src="image/ba2.jpg" alt="" class="film-img" />
+        <img src="image/ba3.jpg" alt="" class="film-img" />
+        <img src="image/ba4.jpg" alt="" class="film-img" />
+        <img src="image/ba5.jpg" alt="" class="film-img" />
+        <img src="image/ba6.jpg" alt="" class="film-img" />
+        <img src="image/ba7.jpg" alt="" class="film-img" />
+        <img src="image/ba8.jpg" alt="" class="film-img" />
+        <img src="image/ba9.jpg" alt="" class="film-img" />
       </div>
     </div>
   </section>
@@ -536,9 +536,26 @@
   <script>
     (function() {
       var track = document.querySelector('.film-strip-track');
-      // Calculate exact half-width at runtime (18 imgs = 2 sets, so half = 1 set width)
-      var TOTAL = track.scrollWidth / 2;
-      var SPEED = TOTAL / 35 / 1000; // px per ms
+      var TOTAL, SPEED;
+
+      function init() {
+        TOTAL = track.scrollWidth / 2;
+        SPEED = TOTAL / 35 / 1000;
+        requestAnimationFrame(tick);
+      }
+
+      // Wait for images to load so scrollWidth is accurate
+      var imgs = track.querySelectorAll('img');
+      var loaded = 0;
+      function onLoad() {
+        loaded++;
+        if (loaded === imgs.length) init();
+      }
+      imgs.forEach(function(img) {
+        if (img.complete) { loaded++; }
+        else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
+      });
+      if (loaded === imgs.length) init();
       var pos = 0;
       var isDragging = false;
       var dragStartX = 0;
@@ -569,7 +586,6 @@
         }
         requestAnimationFrame(tick);
       }
-      requestAnimationFrame(tick);
 
       function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
 
