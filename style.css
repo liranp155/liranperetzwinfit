@@ -858,7 +858,7 @@ body {
 }
 
 .film-img {
-  height: 200px;
+  height: 140px;
   width: auto;
   border-radius: 10px;
   object-fit: cover;
@@ -876,7 +876,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .film-img { height: 140px; }
+  .film-img { height: 100px; }
 }
 
 /* ===== TESTIMONIALS ===== */
