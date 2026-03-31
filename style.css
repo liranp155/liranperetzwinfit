@@ -853,29 +853,29 @@ body {
 .film-strip-track {
   display: flex;
   flex-direction: row;
-  gap: 16px;
   width: max-content;
   direction: ltr;
-  animation: filmScroll 30s linear infinite;
+  animation: filmScroll 35s linear infinite;
 }
 
 .film-img {
-  height: 140px;
-  width: auto;
+  height: 150px;
+  width: 200px;
   border-radius: 10px;
   object-fit: cover;
   flex-shrink: 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  margin-left: 16px;
 }
 
+/* 9 images × (200px + 16px gap) = 1944px */
 @keyframes filmScroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-1944px); }
 }
 
-
 @media (max-width: 768px) {
-  .film-img { height: 100px; }
+  .film-img { height: 110px; width: 140px; }
 }
 
 /* ===== TESTIMONIALS ===== */
