@@ -848,6 +848,7 @@ body {
   overflow: hidden;
   margin-top: 48px;
   padding: 10px 0;
+  direction: ltr;
 }
 
 .film-strip-track {
@@ -855,7 +856,7 @@ body {
   flex-direction: row;
   width: max-content;
   direction: ltr;
-  /* animation handled by JS */
+  will-change: transform;
 }
 
 .film-img {
@@ -865,13 +866,7 @@ body {
   object-fit: cover;
   flex-shrink: 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  margin-left: 16px;
-}
-
-/* 9 images × (200px + 16px gap) = 1944px */
-@keyframes filmScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-1944px); }
+  margin-right: 16px;
 }
 
 @media (max-width: 768px) {
