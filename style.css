@@ -803,6 +803,37 @@ body {
   flex-shrink: 0;
 }
 
+/* ===== BEFORE AFTER ===== */
+.before-after {
+  padding: 70px 40px 20px;
+  text-align: center;
+}
+
+.before-after-container { max-width: 700px; margin: 0 auto; }
+
+.before-after-title {
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin: 12px 0 24px;
+  color: #fff;
+}
+
+.before-after-title .highlight {
+  color: var(--primary);
+  margin: 0 16px;
+  font-weight: 300;
+}
+
+.before-after-line {
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(0,212,255,0.6);
+}
+
 /* ===== TESTIMONIALS ===== */
 .testimonials {
   padding: 90px 40px;
