@@ -852,8 +852,10 @@ body {
 
 .film-strip-track {
   display: flex;
+  flex-direction: row;
   gap: 16px;
   width: max-content;
+  direction: ltr;
   animation: filmScroll 30s linear infinite;
 }
 
